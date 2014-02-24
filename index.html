@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>	
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+<p>People first started keeping time with the sun. The careful observer noticed there was a place between the time the sun came up and the time the sun went down when it was highest in the sky. This place also evenly divided the daylight hours into two. And it happened in the same direction each day. It was a time which came to be known as Solar Noon, and it always happened in the direction we now know as South.</p>
+
+<p>Today, the world is divided into time zones. Because time zones cover a large area, Noon is rarely Solar Noon.</p>
+
+<p>Perhaps you want to be different. Perhaps you want to go back to a more primitive time (pun intended). A time when noon is actually half way through the day.</p>
+
+<p>That's what we are about here. Syncing to a time no one else is using, because, well, we can.</p>
+
+<p>This web app allows you to find Solar Time in one of three way. 1. Find Solar Time by reading the location data from your device. You will have to have this turned on. 2. By entering a latitude and longitude. Or 3. By entering a zipcode. Note: Entering a zipcode is the least accurate, but is actually still pretty close.</p>
+
+<form>
+	<input id="device" type="radio" name="locationData" value="device" checked onchange="solarTime.checkLocationMethod()">
+	<label for="device">Use my device location.</label><br>
+
+	<input id="latLong" type="radio" name="locationData" value="latLong" onchange="solarTime.checkLocationMethod()">
+	<label for="latLong">Enter Latitude and Longitude.</label>
+		<label> Longitude <input type="text"  size="10" maxlength="30" id="longitude" onFocus="solarTime.changeToLong()"></input> (Enter longitude in decimal form. This should be a positive number of East and negative for West)</label> <br>
+
+	<input id="zipcodeButton" type="radio" name="locationData" value="zipcode" onchange="solarTime.checkLocationMethod()">
+	<label for="zipcode">Enter a zipcode.</label>
+	<input type="text" name="zipcode" size="5" maxlength="5" id="zipcode" onFocus="solarTime.changeToZip()"><br>
+
+	<input type="button" onclick="solarTime.checkLocationMethod()" value="Find Solar Time" />
+</form>
+
+
+
+<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
