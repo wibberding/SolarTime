@@ -9,6 +9,7 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -26,11 +27,12 @@
     <!-- Start of form and instructions code -->
     <div class="container">
       <div class="row">
-        <div class="col-md-8">
-          <p>This web app allows you to find Solar Time in two ways:</p>
-          <p> 1. Find Solar Time by reading the location data from your device. You will have to have this turned on. </p>
-          <p> 2. By entering a longitude. You can find the longitude of your zipcode <a href="https://www.zipinfo.com/search/zipcode.htm" target="_blank">here</a>.</p>
+        <div class="col-md-6">
+          <h4 class="text-primary">This web app allows you to find Solar Time in two ways:</h4>
+          <p> <span class="glyphicon glyphicon-star-empty"></span> By reading the location data from your device. You will have to have this turned on. </p>
+          <p> <span class="glyphicon glyphicon-star-empty"></span></i> By entering a longitude. You can find the longitude of your zipcode <a href="https://www.zipinfo.com/search/zipcode.htm" target="_blank">here</a>.</p>
         </div>
+        <div class="col-md-2"></div>
         <div class="col-md-4">
           <form id="form">
             <div class="form-group">
@@ -39,7 +41,7 @@
               <input id="latLong" type="radio" name="locationData" value="latLong" onchange="solarTime.checkLocationMethod()">
               <label for="latLong">Enter Longitude</label>
               <input type="text"  size="10" maxlength="30" id="longitude" onFocus="solarTime.changeToLong()"></input> (Enter postive longitude for East and negative for West. All of the United States is negative.) <br>
-              <input type="button" onclick="solarTime.checkLocationMethod()" value="Find Solar Time" />
+              <input type="button" class="btn btn-primary top-buffer" onclick="solarTime.checkLocationMethod()" value="Find Solar Time" />
             </div>
           </form>
         </div>
@@ -51,7 +53,7 @@
     <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h3>Why Solar Time?</h3>
+        <h3 class="text-primary">Why Solar Time?</h3>
         <p>People first started keeping time with the sun. The careful observer noticed there was a place between the time the sun came up and the time the sun went down when it was highest in the sky. This place also evenly divided the daylight hours into two. And it happened in the same direction each day. It was a time which came to be known as Solar Noon, and it always happened in the direction we now know as South.</p>
 
         <p>Today, the world is divided into time zones. Because time zones cover a large area, Noon is rarely Solar Noon.</p>
