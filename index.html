@@ -1,38 +1,73 @@
 <!DOCTYPE html>
-<html>
-<head>	
-<link rel="stylesheet" type="text/css" href="style.css">
-</head>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SolarTime</title>
+    <link rel="icon" type="image/ico" href="favicon.ico">
 
-<body>
-<p>People first started keeping time with the sun. The careful observer noticed there was a place between the time the sun came up and the time the sun went down when it was highest in the sky. This place also evenly divided the daylight hours into two. And it happened in the same direction each day. It was a time which came to be known as Solar Noon, and it always happened in the direction we now know as South.</p>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
-<p>Today, the world is divided into time zones. Because time zones cover a large area, Noon is rarely Solar Noon.</p>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <!-- Start of jumbotron code for big clock -->
+    <div class="jumbotron">
+      <center><h1 id="clock">Solar Time</h1></center>
+    </div>
+    <!-- End of jumbotron code for big clock -->
+    <!-- Start of form and instructions code -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <p>This web app allows you to find Solar Time in two ways:</p>
+          <p> 1. Find Solar Time by reading the location data from your device. You will have to have this turned on. </p>
+          <p> 2. By entering a longitude. You can find the longitude of your zipcode <a href="https://www.zipinfo.com/search/zipcode.htm" target="_blank">here</a>.</p>
+        </div>
+        <div class="col-md-4">
+          <form id="form">
+            <div class="form-group">
+              <input id="device" type="radio" name="locationData" value="device" checked onchange="solarTime.checkLocationMethod()">
+              <label for="device">Use my device location.</label><br>
+              <input id="latLong" type="radio" name="locationData" value="latLong" onchange="solarTime.checkLocationMethod()">
+              <label for="latLong">Enter Longitude</label>
+              <input type="text"  size="10" maxlength="30" id="longitude" onFocus="solarTime.changeToLong()"></input> (Enter postive longitude for East and negative for West. All of the United States is negative.) <br>
+              <input type="button" onclick="solarTime.checkLocationMethod()" value="Find Solar Time" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  <!-- End of form and instructions code -->
 
-<p>Perhaps you want to be different. Perhaps you want to go back to a more primitive time (pun intended). A time when noon is actually half way through the day.</p>
+  <!-- Start explaination code -->
+    <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Why Solar Time?</h3>
+        <p>People first started keeping time with the sun. The careful observer noticed there was a place between the time the sun came up and the time the sun went down when it was highest in the sky. This place also evenly divided the daylight hours into two. And it happened in the same direction each day. It was a time which came to be known as Solar Noon, and it always happened in the direction we now know as South.</p>
 
-<p>That's what we are about here. Syncing to a time no one else is using, because, well, we can.</p>
+        <p>Today, the world is divided into time zones. Because time zones cover a large area, Noon is rarely Solar Noon.</p>
 
-<p>This web app allows you to find Solar Time in one of three way. 1. Find Solar Time by reading the location data from your device. You will have to have this turned on. 2. By entering a latitude and longitude. Or 3. By entering a zipcode. Note: Entering a zipcode is the least accurate, but is actually still pretty close.</p>
+        <p>Perhaps you want to be different. Perhaps you want to go back to a more primitive time (pun intended). A time when noon is actually half way through the day.</p>
 
-<form>
-	<input id="device" type="radio" name="locationData" value="device" checked onchange="solarTime.checkLocationMethod()">
-	<label for="device">Use my device location.</label><br>
-
-	<input id="latLong" type="radio" name="locationData" value="latLong" onchange="solarTime.checkLocationMethod()">
-	<label for="latLong">Enter Latitude and Longitude.</label>
-		<label> Longitude <input type="text"  size="10" maxlength="30" id="longitude" onFocus="solarTime.changeToLong()"></input> (Enter longitude in decimal form. This should be a positive number of East and negative for West)</label> <br>
-
-	<input id="zipcodeButton" type="radio" name="locationData" value="zipcode" onchange="solarTime.checkLocationMethod()">
-	<label for="zipcode">Enter a zipcode.</label>
-	<input type="text" name="zipcode" size="5" maxlength="5" id="zipcode" onFocus="solarTime.changeToZip()"><br>
-
-	<input type="button" onclick="solarTime.checkLocationMethod()" value="Find Solar Time" />
-</form>
+        <p>That's what we are about here. Syncing to a time no one else is using, because, well, we can.</p>
+      </div>
+    </div>
+  </div>
 
 
-
-<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
-<script type="text/javascript" src="script.js"></script>
-</body>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+  </body>
 </html>
